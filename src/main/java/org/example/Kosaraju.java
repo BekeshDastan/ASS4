@@ -12,6 +12,7 @@ public class Kosaraju {
     List<List<Integer>> sccList;
     Graph tranposedGraph;
 
+
     public Kosaraju(Graph g ){
         this.graph = g;
         visited = new boolean[g.vertices];
@@ -51,5 +52,25 @@ public class Kosaraju {
         this.tranposedGraph=transposed;
     }
 
+    public Graph condencedGraph(){
+        int n = sccList.size();
+        Graph condensed = new Graph(n);
+        int[] compId= new int[graph.vertices];
+        for (int i=0;i< sccList.size();i++){
+            for (int v : sccList.get(i)){
+                compId[v]=i;}
+        }
+
+        for (int u=0;u<graph.vertices;u++){
+            for (int v : graph.adjList.get(u)){
+                if (compId[v]!=compId[u]){
+                    condensed.addEdge(compId[u],compId[v]);
+
+                }
+            }
+
+        }
+        return condensed;
+    }
 
 }

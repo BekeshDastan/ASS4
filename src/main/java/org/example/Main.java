@@ -1,22 +1,23 @@
 package org.example;
-
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Graph g = new Graph(5);
-        g.addEdge(0, 2);
-        g.addEdge(2, 1);
-        g.addEdge(1, 0);
-        g.addEdge(0, 3);
-        g.addEdge(3, 4);
+        Parser.InputData input = Parser.readInput("tasks.json");
+
+        Graph g = Parser.toGraph(input);
 
         Kosaraju kos = new Kosaraju(g);
         kos.findSCC();
-        System.out.println(kos.sccList);
-        kahn k = new kahn(g);
+        for (List<Integer> scc : kos.sccList) {
+            System.out.println("Component: " + scc + ", size: " + scc.size());
+        }
+
+        Graph condensed = kos.condencedGraph();
+        kahn k = new kahn(condensed);
 
 
-        for (int i=0;i<g.vertices;i++){
+        for (int i=0;i< condensed.vertices; i++){
                 System.out.println(k.getTopOrder(i));
                 if (k.getTopOrder(i) == "Graph has a cycle. Topological sort not possible."){
                     return;
