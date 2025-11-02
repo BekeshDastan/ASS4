@@ -1,11 +1,10 @@
-package org.example;
-import java.sql.Array;
+package org.Graphs;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Graph {
-    int vertices;
+    public int vertices;
     List<List<Integer>> adjList;
 
     public Graph ( int n){
