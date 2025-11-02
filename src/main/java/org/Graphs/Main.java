@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Parser.InputData input = Parser.readInput("inputSmall.json");
+        Parser.InputData input = Parser.readInput("inputLarge.json");
 
         Graph g = Parser.toGraph(input);
         allMetrics  metrics= new allMetrics();
