@@ -3,15 +3,15 @@ package org.Graphs;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class kahn {
+public class Kahn {
     int[] inDegree;
     int[] topOrder;
-    allMetrics metrics;
+    AllMetrics metrics;
     int index = 0;
     boolean hasCycle=false;
     double Time;
 
-    public kahn(Graph G,allMetrics metrics) {
+    public Kahn(Graph G, AllMetrics metrics) {
         long start = System.nanoTime();
         this.metrics = metrics;
         inDegree = new int[G.vertices];

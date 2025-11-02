@@ -1,6 +1,6 @@
 package org.Graphs;
 
-public class allMetrics {
+public class AllMetrics {
     private long startTime;
     private long Time;
 

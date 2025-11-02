@@ -3,7 +3,7 @@ import java.util.*;
 
 public class DAGPATHs {
 
-    public static void shortestPath(Graph g, int source, int[][] weight,  allMetrics metrics) {
+    public static void shortestPath(Graph g, int source, int[][] weight,  AllMetrics metrics) {
         long start = System.nanoTime();
 
         int n = g.vertices;
@@ -14,7 +14,7 @@ public class DAGPATHs {
         Arrays.fill(parent, -1);
         dist[source] = 0;
 
-        kahn topo = new kahn(g,metrics);
+        Kahn topo = new Kahn(g,metrics);
         if (topo.hasCycle) throw new RuntimeException("Graph has a cycle!");
 
         for (int i = 0; i < n; i++) {
@@ -47,7 +47,7 @@ public class DAGPATHs {
 
     }
 
-    public static void longestPath(Graph g, int source, int[][] weight,  allMetrics metrics) {
+    public static void longestPath(Graph g, int source, int[][] weight,  AllMetrics metrics) {
         long start = System.nanoTime();
         int n = g.vertices;
         int[] dist = new int[n];
@@ -57,7 +57,7 @@ public class DAGPATHs {
         Arrays.fill(parent, -1);
         dist[source] = 0;
 
-        kahn topo = new kahn(g, metrics);
+        Kahn topo = new Kahn(g, metrics);
         if (topo.hasCycle) throw new RuntimeException("Graph has a cycle!");
 
         for (int i = 0; i < n; i++) {
@@ -92,13 +92,13 @@ public class DAGPATHs {
     }
 
 
-    public static int[] getShortestDistances(Graph g, int source, int[][] weight, allMetrics metrics) {
+    public static int[] getShortestDistances(Graph g, int source, int[][] weight, AllMetrics metrics) {
         int n = g.vertices;
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[source] = 0;
 
-        kahn topo = new kahn(g, metrics);
+        Kahn topo = new Kahn(g, metrics);
         if (topo.hasCycle) throw new RuntimeException("Graph has a cycle!");
 
         for (int i = 0; i < n; i++) {
@@ -116,13 +116,13 @@ public class DAGPATHs {
 
 
 
-    public static int[] getLongestDistances(Graph g, int source, int[][] weight, allMetrics metrics) {
+    public static int[] getLongestDistances(Graph g, int source, int[][] weight, AllMetrics metrics) {
         int n = g.vertices;
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MIN_VALUE);
         dist[source] = 0;
 
-        kahn topo = new kahn(g, metrics);
+        Kahn topo = new Kahn(g, metrics);
         if (topo.hasCycle) throw new RuntimeException("Graph has a cycle!");
 
         for (int i = 0; i < n; i++) {

@@ -10,10 +10,10 @@ public class Kosaraju {
     Stack<Integer> stack;
     public List<List<Integer>> sccList;
     Graph tranposedGraph;
-    allMetrics metrics;
+    AllMetrics metrics;
 
 
-    public Kosaraju(Graph g, allMetrics metrics){
+    public Kosaraju(Graph g, AllMetrics metrics){
         this.metrics = metrics;
         this.graph = g;
         visited = new boolean[g.vertices];

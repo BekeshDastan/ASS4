@@ -2,10 +2,9 @@ package Graphs;
 
 import org.Graphs.DAGPATHs;
 import org.Graphs.Graph;
-import org.Graphs.allMetrics;
+import org.Graphs.AllMetrics;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
 
 public class DAGSP_TEST {
     @Test
@@ -29,7 +28,7 @@ public class DAGSP_TEST {
         weight[2][3] = 2;
         weight[3][4] = 4;
 
-        allMetrics metrics = new allMetrics();
+        AllMetrics metrics = new AllMetrics();
 
         DAGPATHs.shortestPath(g, 0, weight, metrics);
         int[] dist = DAGPATHs.getShortestDistances(g, 0, weight, metrics);

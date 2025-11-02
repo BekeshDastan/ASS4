@@ -2,7 +2,7 @@ package Graphs;
 
 import org.Graphs.Kosaraju;
 import org.Graphs.Graph;
-import org.Graphs.allMetrics;
+import org.Graphs.AllMetrics;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
@@ -15,7 +15,7 @@ public class SCC_test {
         g.addEdge(1, 2);
         g.addEdge(2, 0);
         g.addEdge(3, 4);
-        allMetrics metrics = new allMetrics();
+        AllMetrics metrics = new AllMetrics();
         Kosaraju sccFinder = new Kosaraju(g, metrics);
         sccFinder.findSCC();
 
@@ -34,7 +34,7 @@ public class SCC_test {
         g.addEdge(2, 0);
         g.addEdge(3, 4);
 
-        allMetrics metrics = new allMetrics();
+        AllMetrics metrics = new AllMetrics();
         Kosaraju sccFinder = new Kosaraju(g,metrics);
         sccFinder.findSCC();
         Graph condensed = sccFinder.condencedGraph();

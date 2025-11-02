@@ -1,7 +1,7 @@
 package Graphs;
-import org.Graphs.allMetrics;
+import org.Graphs.AllMetrics;
 import org.Graphs.Graph;
-import org.Graphs.kahn;
+import org.Graphs.Kahn;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +9,7 @@ public class Kahn_test {
 
     @Test
     public void testTopologicalOrder() {
-        allMetrics metrics = new allMetrics();
+        AllMetrics metrics = new AllMetrics();
         Graph g = new Graph(6);
         g.addEdge(5, 2);
         g.addEdge(5, 0);
@@ -18,7 +18,7 @@ public class Kahn_test {
         g.addEdge(2, 3);
         g.addEdge(3, 1);
 
-        kahn topo = new kahn(g,metrics);
+        Kahn topo = new Kahn(g,metrics);
 
         assertFalse(topo.hasCycle());
         int count = 0;
@@ -32,13 +32,13 @@ public class Kahn_test {
 
     @Test
     public void testCycleDetection() {
-        allMetrics metrics = new allMetrics();
+        AllMetrics metrics = new AllMetrics();
         Graph g = new Graph(3);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 0);
 
-        kahn topo = new kahn(g,metrics);
+        Kahn topo = new Kahn(g,metrics);
         assertTrue(topo.hasCycle());
         assertEquals("Graph has a cycle. Topological sort not possible.", topo.getTopOrder(0));
     }

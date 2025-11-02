@@ -1,12 +1,11 @@
 package org.Graphs;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Parser.InputData input = Parser.readInput("inputLarge.json");
 
         Graph g = Parser.toGraph(input);
-        allMetrics  metrics= new allMetrics();
+        AllMetrics metrics= new AllMetrics();
 
         Kosaraju kos = new Kosaraju(g,metrics);
         kos.findSCC();
@@ -21,7 +20,7 @@ public class Main {
         metrics.reset();
 
         Graph condensed = kos.condencedGraph();
-        kahn k = new kahn(condensed,metrics);
+        Kahn k = new Kahn(condensed,metrics);
         k.results();
 
         DAGPATHs.longestPath(g, source, w, metrics);

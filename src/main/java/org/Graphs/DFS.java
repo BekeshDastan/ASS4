@@ -7,10 +7,10 @@ public class DFS {
     boolean[] visited;
     boolean[] visited2;
     Graph graph;
-    allMetrics metrics;
+    AllMetrics metrics;
 
 
-    public DFS(Graph g,  allMetrics metrics){
+    public DFS(Graph g,  AllMetrics metrics){
         this.graph=g;
         this.metrics = metrics;
         visited=new boolean[g.vertices];
